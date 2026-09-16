@@ -1,0 +1,117 @@
+
+xml
+        <?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.TableColumn?>
+        <?import javafx.scene.control.TableView?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ni.edu.uam.sistemasolicitudesclientes.controller.ConsultaClienteController"
+            prefWidth="900"
+            prefHeight="550">
+
+    <top>
+
+        <VBox alignment="CENTER"
+              spacing="5">
+
+            <padding>
+                <Insets top="20"
+                        right="10"
+                        bottom="15"
+                        left="10"/>
+            </padding>
+
+            <children>
+
+                <Label text="Consulta de Clientes"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+                <Label text="Haga doble clic sobre un cliente para visualizar sus detalles."/>
+
+            </children>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <VBox>
+
+            <padding>
+                <Insets top="10"
+                        right="25"
+                        bottom="10"
+                        left="25"/>
+            </padding>
+
+            <children>
+
+                <TableView fx:id="tablaClientes"
+                           prefHeight="400"
+                           onMouseClicked="#dobleClicCliente">
+
+                    <columns>
+
+                        <TableColumn fx:id="colNombreCompleto"
+                                     text="Nombre completo"
+                                     prefWidth="200"/>
+
+                        <TableColumn fx:id="colTipoCliente"
+                                     text="Tipo cliente"
+                                     prefWidth="140"/>
+
+                        <TableColumn fx:id="colCiudad"
+                                     text="Ciudad"
+                                     prefWidth="130"/>
+
+                        <TableColumn fx:id="colFechaNacimiento"
+                                     text="Fecha de nacimiento"
+                                     prefWidth="170"/>
+
+                        <TableColumn fx:id="colTipoSolicitud"
+                                     text="Tipo solicitud"
+                                     prefWidth="160"/>
+
+                    </columns>
+
+                </TableView>
+
+            </children>
+
+        </VBox>
+
+    </center>
+
+    <bottom>
+
+        <HBox alignment="CENTER">
+
+            <padding>
+                <Insets top="15"
+                        right="10"
+                        bottom="20"
+                        left="10"/>
+            </padding>
+
+            <children>
+
+                <Button text="Volver al Menú Principal"
+                        prefWidth="200"
+                        onAction="#volverPrincipal"/>
+
+            </children>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>
