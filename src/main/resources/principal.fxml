@@ -1,0 +1,171 @@
+xml
+        <?xml version="1.0" encoding="UTF-8"?>
+
+        <?import java.lang.String?>
+        <?import javafx.collections.FXCollections?>
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.ContextMenu?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.ListView?>
+        <?import javafx.scene.control.Menu?>
+        <?import javafx.scene.control.MenuBar?>
+        <?import javafx.scene.control.MenuItem?>
+        <?import javafx.scene.control.SeparatorMenuItem?>
+        <?import javafx.scene.control.ToolBar?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ni.edu.uam.sistemasolicitudesclientes.controller.PrincipalController"
+            prefWidth="750"
+            prefHeight="500">
+
+    <top>
+
+        <VBox>
+
+            <children>
+
+                <MenuBar>
+
+                    <menus>
+
+                        <Menu text="Archivo">
+
+                            <items>
+
+                                <MenuItem text="Exportar clientes"
+                                          onAction="#exportarClientes"/>
+
+                                <SeparatorMenuItem/>
+
+                                <MenuItem text="Cerrar sesión"
+                                          onAction="#cerrarSesion"/>
+
+                            </items>
+
+                        </Menu>
+
+                        <Menu text="Clientes">
+
+                            <items>
+
+                                <MenuItem text="Registrar cliente"
+                                          onAction="#abrirRegistro"/>
+
+                                <MenuItem text="Consultar clientes"
+                                          onAction="#abrirConsulta"/>
+
+                            </items>
+
+                        </Menu>
+
+                        <Menu text="Ayuda">
+
+                            <items>
+
+                                <MenuItem text="Acerca del sistema"
+                                          onAction="#mostrarDialogo"/>
+
+                            </items>
+
+                        </Menu>
+
+                    </menus>
+
+                </MenuBar>
+
+                <ToolBar>
+
+                    <items>
+
+                        <Button text="Registrar Cliente"
+                                onAction="#abrirRegistro"/>
+
+                        <Button text="Consultar Clientes"
+                                onAction="#abrirConsulta"/>
+
+                        <Button text="Exportar"
+                                onAction="#exportarClientes"/>
+
+                    </items>
+
+                </ToolBar>
+
+            </children>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <VBox alignment="CENTER"
+              spacing="20">
+
+            <padding>
+                <Insets top="30"
+                        right="50"
+                        bottom="30"
+                        left="50"/>
+            </padding>
+
+            <children>
+
+                <Label text="Sistema de Solicitudes de Clientes"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+                <Label text="Seleccione una opción del menú"/>
+
+                <ListView prefWidth="400"
+                          prefHeight="180"
+                          maxWidth="450">
+
+                    <items>
+
+                        <FXCollections fx:factory="observableArrayList">
+
+                            <String fx:value="Registrar un nuevo cliente"/>
+
+                            <String fx:value="Consultar clientes registrados"/>
+
+                            <String fx:value="Exportar información de clientes"/>
+
+                        </FXCollections>
+
+                    </items>
+
+                    <contextMenu>
+
+                        <ContextMenu>
+
+                            <items>
+
+                                <MenuItem text="Ver cantidad de clientes registrados"
+                                          onAction="#accionContextual"/>
+
+                            </items>
+
+                        </ContextMenu>
+
+                    </contextMenu>
+
+                </ListView>
+
+                <Button text="Registrar Cliente"
+                        prefWidth="220"
+                        onAction="#abrirRegistro"/>
+
+                <Button text="Consultar Clientes"
+                        prefWidth="220"
+                        onAction="#abrirConsulta"/>
+
+            </children>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
