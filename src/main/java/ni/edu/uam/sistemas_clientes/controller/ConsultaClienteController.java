@@ -1,4 +1,4 @@
-package ni.edu.uam.sistemasolicitudesclientes.controller;
+package ni.edu.uam.sistemas_clientes.controller;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
