@@ -1,3 +1,5 @@
+package ni.edu.uam.sistemas_clientes.controller;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,3 +63,32 @@ public class LoginController {
             alert.showAndWait();
         }
     }
+
+    @FXML
+    private void teclaPresionada(KeyEvent event) {
+
+        if (event.getCode() == KeyCode.ENTER) {
+            validarLogin();
+        }
+    }
+
+    @FXML
+    private void salir(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+        alert.setTitle("Salir");
+        alert.setHeaderText("Cerrar aplicación");
+        alert.setContentText(
+                "¿Está seguro de que desea salir del sistema?"
+        );
+
+        Optional<ButtonType> respuesta = alert.showAndWait();
+
+        if (respuesta.isPresent()
+                && respuesta.get() == ButtonType.OK) {
+
+            Platform.exit();
+        }
+    }
+}
