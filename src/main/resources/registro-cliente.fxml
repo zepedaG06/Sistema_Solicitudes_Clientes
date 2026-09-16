@@ -1,0 +1,242 @@
+xml
+        <?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.CheckBox?>
+        <?import javafx.scene.control.ComboBox?>
+        <?import javafx.scene.control.DatePicker?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.RadioButton?>
+        <?import javafx.scene.control.ScrollPane?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.image.ImageView?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.layout.ColumnConstraints?>
+        <?import javafx.scene.layout.GridPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ni.edu.uam.sistemasolicitudesclientes.controller.RegistroClienteController"
+            prefWidth="800"
+            prefHeight="650">
+
+    <top>
+
+        <VBox alignment="CENTER">
+
+            <padding>
+                <Insets top="20"
+                        right="10"
+                        bottom="15"
+                        left="10"/>
+            </padding>
+
+            <children>
+
+                <Label text="Registro de Cliente"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+                <Label text="Ingrese la información solicitada"/>
+
+            </children>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <ScrollPane fitToWidth="true">
+
+            <content>
+
+                <VBox alignment="TOP_CENTER"
+                      spacing="20">
+
+                    <padding>
+                        <Insets top="20"
+                                right="40"
+                                bottom="20"
+                                left="40"/>
+                    </padding>
+
+                    <children>
+
+                        <GridPane hgap="15"
+                                  vgap="15"
+                                  maxWidth="700">
+
+                            <columnConstraints>
+
+                                <ColumnConstraints minWidth="170"
+                                                   prefWidth="180"/>
+
+                                <ColumnConstraints minWidth="350"
+                                                   prefWidth="450"/>
+
+                            </columnConstraints>
+
+                            <Label text="Nombres:"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="0"/>
+
+                            <TextField fx:id="txtNombres"
+                                       promptText="Ingrese los nombres"
+                                       GridPane.columnIndex="1"
+                                       GridPane.rowIndex="0"/>
+
+                            <Label text="Apellidos:"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="1"/>
+
+                            <TextField fx:id="txtApellidos"
+                                       promptText="Ingrese los apellidos"
+                                       GridPane.columnIndex="1"
+                                       GridPane.rowIndex="1"/>
+
+                            <Label text="Tipo de cliente:"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="2"/>
+
+                            <ComboBox fx:id="cmbTipoCliente"
+                                      promptText="Seleccione"
+                                      prefWidth="250"
+                                      GridPane.columnIndex="1"
+                                      GridPane.rowIndex="2"/>
+
+                            <Label text="Ciudad:"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="3"/>
+
+                            <ComboBox fx:id="cmbCiudad"
+                                      promptText="Seleccione"
+                                      prefWidth="250"
+                                      GridPane.columnIndex="1"
+                                      GridPane.rowIndex="3"/>
+
+                            <Label text="Fecha de nacimiento:"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="4"/>
+
+                            <DatePicker fx:id="dpFechaNacimiento"
+                                        prefWidth="250"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="4"/>
+
+                            <Label text="Tipo de solicitud:"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="5"/>
+
+                            <HBox spacing="15"
+                                  GridPane.columnIndex="1"
+                                  GridPane.rowIndex="5">
+
+                                <children>
+
+                                    <RadioButton fx:id="rbInformacion"
+                                                 text="Información"/>
+
+                                    <RadioButton fx:id="rbSoporte"
+                                                 text="Soporte"/>
+
+                                    <RadioButton fx:id="rbReclamo"
+                                                 text="Reclamo"/>
+
+                                </children>
+
+                            </HBox>
+
+                            <Label text="Servicios de interés:"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="6"/>
+
+                            <HBox spacing="15"
+                                  GridPane.columnIndex="1"
+                                  GridPane.rowIndex="6">
+
+                                <children>
+
+                                    <CheckBox fx:id="chkInternet"
+                                              text="Internet"/>
+
+                                    <CheckBox fx:id="chkTelefonia"
+                                              text="Telefonía"/>
+
+                                    <CheckBox fx:id="chkSoporteTecnico"
+                                              text="Soporte técnico"/>
+
+                                </children>
+
+                            </HBox>
+
+                            <Label text="Fotografía:"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="7"/>
+
+                            <VBox spacing="10"
+                                  GridPane.columnIndex="1"
+                                  GridPane.rowIndex="7">
+
+                                <children>
+
+                                    <ImageView fx:id="imageFoto"
+                                               fitWidth="160"
+                                               fitHeight="160"
+                                               preserveRatio="true"/>
+
+                                    <Button text="Seleccionar fotografía"
+                                            prefWidth="180"
+                                            onAction="#seleccionarFoto"/>
+
+                                </children>
+
+                            </VBox>
+
+                        </GridPane>
+
+                    </children>
+
+                </VBox>
+
+            </content>
+
+        </ScrollPane>
+
+    </center>
+
+    <bottom>
+
+        <HBox alignment="CENTER"
+              spacing="15">
+
+            <padding>
+                <Insets top="15"
+                        right="10"
+                        bottom="20"
+                        left="10"/>
+            </padding>
+
+            <children>
+
+                <Button text="Guardar"
+                        prefWidth="120"
+                        onAction="#guardarCliente"/>
+
+                <Button text="Limpiar"
+                        prefWidth="120"
+                        onAction="#limpiar"/>
+
+                <Button text="Cancelar"
+                        prefWidth="120"
+                        onAction="#cancelar"/>
+
+            </children>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>
