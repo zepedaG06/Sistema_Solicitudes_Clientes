@@ -1,4 +1,4 @@
-package ni.edu.uam.sistemasolicitudesclientes.controller;
+package ni.edu.uam.sistemas_clientes.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
