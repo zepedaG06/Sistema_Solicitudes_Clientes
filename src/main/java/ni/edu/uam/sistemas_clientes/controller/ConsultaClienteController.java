@@ -17,6 +17,7 @@ import ni.edu.uam.sistemas_clientes.service.DatosCompartidos;
 import ni.edu.uam.sistemas_clientes.service.NavegacionService;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 
 public class ConsultaClienteController {
@@ -106,12 +107,17 @@ public class ConsultaClienteController {
 
         try {
 
-            FXMLLoader loader =
-                    new FXMLLoader(
-                            getClass().getResource(
-                                    "/ni/edu/uam/sistemas_clientes/detalle-cliente.fxml"
-                            )
-                    );
+            URL recurso = getClass().getResource(
+                    "/ni/edu/uam/sistemas_clientes/detalle-cliente.fxml"
+            );
+
+            if (recurso == null) {
+                throw new IOException(
+                        "No se encontró detalle-cliente.fxml"
+                );
+            }
+
+            FXMLLoader loader = new FXMLLoader(recurso);
 
             Parent root = loader.load();
 
