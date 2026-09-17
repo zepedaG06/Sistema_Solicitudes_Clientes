@@ -12,9 +12,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import ni.edu.uam.sistemasolicitudesclientes.model.Cliente;
-import ni.edu.uam.sistemasolicitudesclientes.service.DatosCompartidos;
-import ni.edu.uam.sistemasolicitudesclientes.service.NavegacionService;
+import ni.edu.uam.sistemas_clientes.model.Cliente;
+import ni.edu.uam.sistemas_clientes.service.DatosCompartidos;
+import ni.edu.uam.sistemas_clientes.service.NavegacionService;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -109,7 +109,7 @@ public class ConsultaClienteController {
             FXMLLoader loader =
                     new FXMLLoader(
                             getClass().getResource(
-                                    "/ni/edu/uam/sistemasolicitudesclientes/detalle-cliente.fxml"
+                                    "/ni/edu/uam/sistemas_clientes/detalle-cliente.fxml"
                             )
                     );
 
