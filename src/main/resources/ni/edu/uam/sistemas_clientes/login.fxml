@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ni.edu.uam.sistemas_clientes.controller.LoginController"
+      alignment="CENTER"
+      spacing="15"
+      prefWidth="450"
+      prefHeight="400"
+      onKeyPressed="#teclaPresionada">
+
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <children>
+        <Label text="Sistema de Solicitudes de Clientes"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+        <Label text="Inicio de Sesión"
+               style="-fx-font-size: 17px;"/>
+
+        <Label text="Usuario"/>
+
+        <TextField fx:id="txtUsuario"
+                   promptText="Ingrese su usuario"
+                   maxWidth="280"/>
+
+        <Label text="Contraseña"/>
+
+        <PasswordField fx:id="txtContrasena"
+                       promptText="Ingrese su contraseña"
+                       maxWidth="280"/>
+
+        <HBox alignment="CENTER" spacing="15">
+            <children>
+                <Button text="Iniciar Sesión"
+                        prefWidth="120"
+                        onAction="#iniciarSesion"/>
+
+                <Button text="Salir"
+                        prefWidth="120"
+                        onAction="#salir"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>
