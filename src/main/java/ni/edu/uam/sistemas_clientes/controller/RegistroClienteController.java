@@ -13,9 +13,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import ni.edu.uam.sistemasolicitudesclientes.model.Cliente;
-import ni.edu.uam.sistemasolicitudesclientes.service.DatosCompartidos;
-import ni.edu.uam.sistemasolicitudesclientes.service.NavegacionService;
+import ni.edu.uam.sistemas_clientes.model.Cliente;
+import ni.edu.uam.sistemas_clientes.service.DatosCompartidos;
+import ni.edu.uam.sistemas_clientes.service.NavegacionService;
 
 import java.io.File;
 import java.io.IOException;

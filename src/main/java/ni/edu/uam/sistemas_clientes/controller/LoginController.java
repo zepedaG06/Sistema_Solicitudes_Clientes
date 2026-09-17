@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import ni.edu.uam.sistemasolicitudesclientes.service.NavegacionService;
+import ni.edu.uam.sistemas_clientes.service.NavegacionService;
 
 import java.io.IOException;
 import java.util.Optional;
