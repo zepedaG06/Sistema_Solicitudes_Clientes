@@ -6,8 +6,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import ni.edu.uam.sistemas_clientes.service.ArchivoService;
 import ni.edu.uam.sistemas_clientes.service.DatosCompartidos;
 import ni.edu.uam.sistemas_clientes.service.NavegacionService;
@@ -17,6 +20,26 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class PrincipalController {
+
+    @FXML
+    private ListView<String> listaOpciones;
+
+    @FXML
+    private void seleccionarOpcion(MouseEvent event) {
+
+        if (event.getClickCount() != 1) {
+            return;
+        }
+
+        switch (listaOpciones.getSelectionModel().getSelectedIndex()) {
+            case 0 -> abrirRegistro(null);
+            case 1 -> abrirConsulta(null);
+            case 2 -> exportarClientes(null);
+            default -> {
+                // No se seleccionó una opción válida.
+            }
+        }
+    }
 
     @FXML
     private void abrirRegistro(ActionEvent event) {
@@ -202,12 +225,15 @@ public class PrincipalController {
 
     private Stage obtenerStage() {
 
-        return (Stage) Stage
+        return Window
                 .getWindows()
                 .stream()
-                .filter(window -> window.isShowing())
+                .filter(window -> window instanceof Stage && window.isShowing())
+                .map(window -> (Stage) window)
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new IllegalStateException(
+                        "No se encontró la ventana principal visible."
+                ));
     }
 
     private void mostrarError(String mensaje) {

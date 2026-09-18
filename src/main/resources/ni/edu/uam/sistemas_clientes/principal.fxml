@@ -72,7 +72,9 @@
 
                 <Label text="Seleccione una opción del menú"/>
 
-                <ListView prefWidth="400" prefHeight="180" maxWidth="450">
+                <ListView fx:id="listaOpciones"
+                          prefWidth="400" prefHeight="180" maxWidth="450"
+                          onMouseClicked="#seleccionarOpcion">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Registrar un nuevo cliente"/>
